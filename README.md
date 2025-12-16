@@ -1,1 +1,1 @@
-# techzone-store.github.io
+# CSEAIML-1.github.io
