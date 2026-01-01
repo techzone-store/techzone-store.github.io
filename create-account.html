@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff4b4b,#c62828);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+@keyframes fadeSlideUp{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.signup-wrapper{
+    width:100%;
+    padding:20px;
+}
+
+.signup-box{
+    max-width:420px;
+    background:#fff;
+    padding:35px 30px;
+    border-radius:10px;
+    margin:auto;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    text-align:center;
+    animation:fadeSlideUp 0.8s ease-out;
+}
+
+.signup-box h2{
+    margin-bottom:8px;
+}
+
+.signup-box p{
+    font-size:14px;
+    color:#777;
+    margin-bottom:25px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:22px;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px 10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    outline:none;
+    font-size:14px;
+}
+
+.input-group label{
+    position:absolute;
+    top:50%;
+    left:10px;
+    transform:translateY(-50%);
+    color:#999;
+    font-size:13px;
+    pointer-events:none;
+    transition:0.3s;
+    background:#fff;
+    padding:0 5px;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-6px;
+    font-size:12px;
+    color:#c62828;
+}
+
+/* Password strength bar */
+.strength{
+    height:6px;
+    width:100%;
+    background:#eee;
+    border-radius:5px;
+    margin-top:6px;
+    overflow:hidden;
+}
+
+.strength span{
+    display:block;
+    height:100%;
+    width:0;
+    transition:0.4s;
+}
+
+/* Weak */
+input:valid:not([pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}"]) ~ .strength span{
+    width:33%;
+    background:#ff9800;
+}
+
+/* Strong */
+input[pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}"]:valid ~ .strength span{
+    width:100%;
+    background:#4caf50;
+}
+
+/* Terms */
+.terms{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    font-size:13px;
+    margin:15px 0;
+    text-align:left;
+}
+
+.terms input{
+    margin-top:3px;
+}
+
+.terms a{
+    color:#c62828;
+    text-decoration:none;
+}
+
+.terms a:hover{
+    text-decoration:underline;
+}
+
+.signup-btn{
+    width:100%;
+    padding:12px;
+    background:#c62828;
+    border:none;
+    border-radius:6px;
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.signup-btn:hover{
+    background:#a81d1d;
+}
+
+.login-link{
+    margin-top:18px;
+    font-size:13px;
+}
+
+.login-link a{
+    color:#c62828;
+    text-decoration:none;
+}
+
+@media(max-width:480px){
+    .signup-box{
+        padding:30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="signup-wrapper">
+<div class="signup-box">
+
+<h2>Create Account</h2>
+<p>Join us and start shopping</p>
+
+<form>
+
+<div class="input-group">
+<input type="text" required>
+<label>Full Name</label>
+</div>
+
+<div class="input-group">
+<input type="email" required>
+<label>Email</label>
+</div>
+
+<div class="input-group">
+<input type="password"
+required
+pattern=".{6,}">
+<label>Password</label>
+<div class="strength"><span></span></div>
+</div>
+
+<div class="input-group">
+<input type="password" required>
+<label>Confirm Password</label>
+</div>
+
+<div class="terms">
+<input type="checkbox" required>
+<label>I agree to the <a href="#">Terms & Conditions</a></label>
+</div>
+
+<button class="signup-btn">Create Account</button>
+
+<div class="login-link">
+Already have an account? <a href="login.html">Login</a>
+</div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>
