@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone Wishlist</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+</head>
+
+<body class="bg-gray-950 text-white min-h-screen overflow-x-hidden">
+
+<!-- AUTH CHECK -->
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
+
+<!-- NAVBAR -->
+<nav class="bg-black/40 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <h1 class="text-2xl font-bold text-cyan-400">TechZone Wishlist</h1>
+
+        <div class="flex gap-3">
+            <a href="dashboard.html" class="bg-gray-900 px-4 py-2 rounded-xl hover:bg-gray-800">Dashboard</a>
+            <a href="cart.html" class="bg-gray-900 px-4 py-2 rounded-xl hover:bg-gray-800">Cart</a>
+            <button onclick="logout()" class="bg-red-500 px-4 py-2 rounded-xl font-semibold hover:bg-red-400">
+                Logout
+            </button>
+        </div>
+
+    </div>
+</nav>
+
+<!-- GLOW -->
+<div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full"></div>
+
+<!-- CONTENT -->
+<div class="relative max-w-6xl mx-auto p-6">
+
+    <h1 class="text-4xl font-bold text-cyan-400 mb-8">Your Wishlist ❤️</h1>
+
+    <div id="wishlistContainer" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+</div>
+
+<script>
+
+function logout(){
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "login.html";
+}
+
+/* ======================
+   WISHLIST DATA
+====================== */
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+/* ======================
+   SAVE
+====================== */
+function saveWishlist(){
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}
+
+/* ======================
+   ADD SAMPLE ITEM (demo only)
+   remove later when using product page
+====================== */
+if(wishlist.length === 0){
+    wishlist.push({
+        name: "Gaming Keyboard",
+        price: 649,
+        image: "images/p9.webp"
+    });
+    saveWishlist();
+}
+
+/* ======================
+   REMOVE ITEM
+====================== */
+function removeItem(index){
+    wishlist.splice(index, 1);
+    saveWishlist();
+    renderWishlist();
+}
+
+/* ======================
+   RENDER
+====================== */
+function renderWishlist(){
+
+    const container = document.getElementById("wishlistContainer");
+
+    if(wishlist.length === 0){
+        container.innerHTML = `
+            <div class="text-center text-gray-400 text-xl mt-20 col-span-full">
+                Your wishlist is empty ❤️
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = wishlist.map((item, index) => `
+        <div class="bg-black/40 border border-gray-800 rounded-3xl overflow-hidden hover:border-cyan-400 transition">
+
+            <img src="${item.image}"
+                class="w-full h-64 object-cover">
+
+            <div class="p-6">
+
+                <h2 class="text-2xl font-bold">${item.name}</h2>
+
+                <p class="text-gray-400 mt-2">
+                    ₹${item.price}
+                </p>
+
+                <div class="flex items-center justify-between mt-5">
+
+                    <button onclick="addToCart(${index})"
+                        class="bg-cyan-500 hover:bg-cyan-400 text-black px-4 py-2 rounded-xl font-semibold">
+                        Add to Cart
+                    </button>
+
+                    <button onclick="removeItem(${index})"
+                        class="bg-red-500 hover:bg-red-400 px-4 py-2 rounded-xl font-semibold">
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    `).join("");
+}
+
+/* ======================
+   ADD TO CART
+====================== */
+function addToCart(index){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const item = wishlist[index];
+
+    // prevent duplicate
+    let existing = cart.find(p => p.name === item.name);
+
+    if(existing){
+        existing.quantity += 1;
+    } else {
+        cart.push({
+            name: item.name,
+            price: item.price,
+            image: item.image,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Added to cart 🛒");
+}
+
+/* ======================
+   INIT
+====================== */
+renderWishlist();
+
+</script>
+
+</body>
+</html>

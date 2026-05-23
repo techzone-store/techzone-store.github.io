@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | TechZone</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+
+</head>
+
+<body class="bg-gray-950 text-white overflow-x-hidden">
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="sticky top-0 z-50 bg-black/60 backdrop-blur-xl border-b border-gray-800">
+
+    <div class="max-w-7xl mx-auto px-6 py-4">
+
+        <div class="flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html"
+                class="flex items-center gap-3">
+
+                <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-400 flex items-center justify-center">
+
+                    <i class="fa-solid fa-bolt text-cyan-400 text-xl"></i>
+
+                </div>
+
+                <div>
+
+                    <h1 class="text-2xl font-bold text-cyan-400">
+                        TechZone
+                    </h1>
+
+                    <p class="text-xs text-gray-400">
+                        Modern Electronics Store
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+
+                <a href="index.html"
+                    class="hover:text-cyan-400 transition">
+                    Home
+                </a>
+
+                <a href="products.html"
+                    class="hover:text-cyan-400 transition">
+                    Products
+                </a>
+
+                <a href="offers.html"
+                    class="hover:text-cyan-400 transition">
+                    Offers
+                </a>
+
+                <a href="contact.html"
+                    class="text-cyan-400 font-semibold">
+                    Contact
+                </a>
+
+                <a href="login.html"
+                    class="hover:text-cyan-400 transition">
+                    Login
+                </a>
+
+                <a href="signup.html"
+                    class="bg-cyan-500 hover:bg-cyan-400 text-black px-5 py-2 rounded-full font-semibold transition">
+
+                    Signup
+
+                </a>
+
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn"
+                class="lg:hidden text-2xl text-cyan-400">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- ================= MOBILE MENU ================= -->
+
+<div id="mobileMenu"
+    class="fixed top-0 right-[-100%] w-[300px] h-screen bg-black border-l border-gray-800 z-50 transition-all duration-300 p-6">
+
+    <div class="flex items-center justify-between mb-10">
+
+        <h2 class="text-2xl font-bold text-cyan-400">
+            Menu
+        </h2>
+
+        <button id="closeMenu"
+            class="text-2xl">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <div class="flex flex-col gap-5 text-lg">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Products</a>
+
+        <a href="offers.html">Offers</a>
+
+        <a href="contact.html"
+            class="text-cyan-400">
+            Contact
+        </a>
+
+        <a href="login.html">Login</a>
+
+        <a href="signup.html"
+            class="bg-cyan-500 text-black text-center py-3 rounded-xl font-bold mt-4">
+
+            Signup
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="relative py-24 overflow-hidden">
+
+    <!-- Glow Effects -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full"></div>
+
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 text-center">
+
+        <div class="inline-block bg-cyan-500/20 border border-cyan-400 text-cyan-400 px-6 py-3 rounded-full font-semibold mb-8">
+
+            📞 CONTACT TECHZONE
+
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-tight">
+
+            We Would Love
+            <span class="text-cyan-400">
+                To Hear From You
+            </span>
+
+        </h1>
+
+        <p class="text-gray-400 text-lg mt-8 max-w-3xl mx-auto leading-8">
+
+            Have questions about products, orders or support?
+            Our team is always ready to help you.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="max-w-7xl mx-auto px-6 pb-24">
+
+    <div class="grid lg:grid-cols-2 gap-12">
+
+        <!-- LEFT INFO -->
+        <div>
+
+            <h2 class="text-4xl font-black mb-6">
+
+                Get In Touch
+
+            </h2>
+
+            <p class="text-gray-400 leading-8 mb-10">
+
+                Contact our support team for product inquiries,
+                order tracking, technical support or business partnerships.
+
+            </p>
+
+            <!-- Contact Cards -->
+            <div class="space-y-6">
+
+                <!-- Card -->
+                <div class="bg-gray-900 border border-gray-800 rounded-3xl p-6 flex items-start gap-5 hover:border-cyan-400 transition">
+
+                    <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-2xl font-bold mb-2">
+                            Email
+                        </h3>
+
+                        <p class="text-gray-400">
+                            support@techzone.com
+                        </p>
+
+                        <p class="text-gray-400">
+                            business@techzone.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Card -->
+                <div class="bg-gray-900 border border-gray-800 rounded-3xl p-6 flex items-start gap-5 hover:border-cyan-400 transition">
+
+                    <div class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center text-purple-400 text-2xl">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-2xl font-bold mb-2">
+                            Phone
+                        </h3>
+
+                        <p class="text-gray-400">
+                            +91 98765 43210
+                        </p>
+
+                        <p class="text-gray-400">
+                            +91 98765 12345
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Card -->
+                <div class="bg-gray-900 border border-gray-800 rounded-3xl p-6 flex items-start gap-5 hover:border-cyan-400 transition">
+
+                    <div class="w-16 h-16 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-400 text-2xl">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-2xl font-bold mb-2">
+                            Address
+                        </h3>
+
+                        <p class="text-gray-400 leading-7">
+
+                            TechZone Headquarters,
+                            New Delhi, India
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Social -->
+            <div class="mt-12">
+
+                <h3 class="text-2xl font-bold mb-6">
+
+                    Follow Us
+
+                </h3>
+
+                <div class="flex gap-5">
+
+                    <div class="w-14 h-14 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:bg-cyan-500 hover:text-black transition cursor-pointer">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </div>
+
+                    <div class="w-14 h-14 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:bg-cyan-500 hover:text-black transition cursor-pointer">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </div>
+
+                    <div class="w-14 h-14 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:bg-cyan-500 hover:text-black transition cursor-pointer">
+
+                        <i class="fa-brands fa-x-twitter"></i>
+
+                    </div>
+
+                    <div class="w-14 h-14 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:bg-cyan-500 hover:text-black transition cursor-pointer">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="bg-gray-900 border border-gray-800 rounded-[35px] p-8 lg:p-10">
+
+            <h2 class="text-4xl font-black mb-8">
+
+                Send Message
+
+            </h2>
+
+            <form class="space-y-6">
+
+                <!-- Name -->
+                <div>
+
+                    <label class="block mb-3 text-gray-300">
+                        Full Name
+                    </label>
+
+                    <input type="text"
+                        placeholder="Enter your full name"
+                        class="w-full bg-gray-950 border border-gray-700 rounded-2xl px-5 py-4 outline-none focus:border-cyan-400 transition">
+
+                </div>
+
+                <!-- Email -->
+                <div>
+
+                    <label class="block mb-3 text-gray-300">
+                        Email Address
+                    </label>
+
+                    <input type="email"
+                        placeholder="Enter your email"
+                        class="w-full bg-gray-950 border border-gray-700 rounded-2xl px-5 py-4 outline-none focus:border-cyan-400 transition">
+
+                </div>
+
+                <!-- Subject -->
+                <div>
+
+                    <label class="block mb-3 text-gray-300">
+                        Subject
+                    </label>
+
+                    <input type="text"
+                        placeholder="Enter subject"
+                        class="w-full bg-gray-950 border border-gray-700 rounded-2xl px-5 py-4 outline-none focus:border-cyan-400 transition">
+
+                </div>
+
+                <!-- Message -->
+                <div>
+
+                    <label class="block mb-3 text-gray-300">
+                        Message
+                    </label>
+
+                    <textarea rows="6"
+                        placeholder="Write your message..."
+                        class="w-full bg-gray-950 border border-gray-700 rounded-2xl px-5 py-4 outline-none focus:border-cyan-400 transition resize-none"></textarea>
+
+                </div>
+
+                <!-- Button -->
+                <button type="submit"
+                    class="w-full bg-cyan-500 hover:bg-cyan-400 text-black py-4 rounded-2xl font-bold text-lg transition">
+
+                    Send Message
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FAQ SECTION ================= -->
+
+<section class="max-w-7xl mx-auto px-6 pb-24">
+
+    <div class="text-center mb-16">
+
+        <h2 class="text-5xl font-black">
+
+            Frequently Asked
+            <span class="text-cyan-400">
+                Questions
+            </span>
+
+        </h2>
+
+        <p class="text-gray-400 mt-5">
+
+            Quick answers to common customer queries.
+
+        </p>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- FAQ -->
+        <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 hover:border-cyan-400 transition">
+
+            <h3 class="text-2xl font-bold mb-4">
+
+                How long does delivery take?
+
+            </h3>
+
+            <p class="text-gray-400 leading-7">
+
+                Delivery usually takes 3-7 business days depending on your location.
+
+            </p>
+
+        </div>
+
+        <!-- FAQ -->
+        <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 hover:border-cyan-400 transition">
+
+            <h3 class="text-2xl font-bold mb-4">
+
+                Can I return a product?
+
+            </h3>
+
+            <p class="text-gray-400 leading-7">
+
+                Yes, products can be returned within 7 days if eligible.
+
+            </p>
+
+        </div>
+
+        <!-- FAQ -->
+        <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 hover:border-cyan-400 transition">
+
+            <h3 class="text-2xl font-bold mb-4">
+
+                Do you provide warranty?
+
+            </h3>
+
+            <p class="text-gray-400 leading-7">
+
+                All electronic products include official manufacturer warranty.
+
+            </p>
+
+        </div>
+
+        <!-- FAQ -->
+        <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 hover:border-cyan-400 transition">
+
+            <h3 class="text-2xl font-bold mb-4">
+
+                Is cash on delivery available?
+
+            </h3>
+
+            <p class="text-gray-400 leading-7">
+
+                Yes, COD is available for selected cities and products.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="border-t border-gray-800 bg-black">
+
+    <div class="max-w-7xl mx-auto px-6 py-12">
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- About -->
+            <div>
+
+                <h2 class="text-3xl font-bold text-cyan-400 mb-5">
+                    TechZone
+                </h2>
+
+                <p class="text-gray-400 leading-7">
+
+                    Your trusted destination for premium gadgets and electronics.
+
+                </p>
+
+            </div>
+
+            <!-- Links -->
+            <div>
+
+                <h3 class="text-xl font-bold mb-5">
+                    Quick Links
+                </h3>
+
+                <ul class="space-y-3 text-gray-400">
+
+                    <li><a href="index.html" class="hover:text-cyan-400">Home</a></li>
+                    <li><a href="products.html" class="hover:text-cyan-400">Products</a></li>
+                    <li><a href="offers.html" class="hover:text-cyan-400">Offers</a></li>
+                    <li><a href="contact.html" class="hover:text-cyan-400">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Support -->
+            <div>
+
+                <h3 class="text-xl font-bold mb-5">
+                    Support
+                </h3>
+
+                <ul class="space-y-3 text-gray-400">
+
+                    <li>FAQs</li>
+                    <li>Shipping</li>
+                    <li>Returns</li>
+                    <li>Privacy Policy</li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+            <div>
+
+                <h3 class="text-xl font-bold mb-5">
+                    Contact
+                </h3>
+
+                <div class="space-y-4 text-gray-400">
+
+                    <p>
+                        support@techzone.com
+                    </p>
+
+                    <p>
+                        +91 98765 43210
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+
+            © 2026 TechZone. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+const closeMenu = document.getElementById("closeMenu");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+
+    mobileMenu.style.right = "0";
+
+});
+
+closeMenu.addEventListener("click", () => {
+
+    mobileMenu.style.right = "-100%";
+
+});
+
+</script>
+
+</body>
+</html>

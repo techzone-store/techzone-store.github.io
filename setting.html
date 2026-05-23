@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone Settings</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+</head>
+
+<body class="bg-gray-950 text-white min-h-screen overflow-x-hidden">
+
+<!-- AUTH CHECK -->
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
+
+<!-- NAVBAR -->
+<nav class="bg-black/40 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <h1 class="text-2xl font-bold text-cyan-400">TechZone Settings</h1>
+
+        <div class="flex gap-3">
+            <a href="dashboard.html" class="bg-gray-900 px-4 py-2 rounded-xl hover:bg-gray-800">Dashboard</a>
+            <a href="profile.html" class="bg-gray-900 px-4 py-2 rounded-xl hover:bg-gray-800">Profile</a>
+            <button onclick="logout()" class="bg-red-500 px-4 py-2 rounded-xl font-semibold hover:bg-red-400">
+                Logout
+            </button>
+        </div>
+
+    </div>
+</nav>
+
+<!-- GLOW -->
+<div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full"></div>
+
+<!-- CONTENT -->
+<div class="relative max-w-5xl mx-auto p-6">
+
+    <h1 class="text-4xl font-bold text-cyan-400 mb-8">Settings ⚙️</h1>
+
+    <!-- ACCOUNT SETTINGS -->
+    <div class="bg-black/40 border border-gray-800 rounded-3xl p-8 mb-8">
+
+        <h2 class="text-2xl font-bold mb-6">Account Settings</h2>
+
+        <form id="settingsForm" class="space-y-5">
+
+            <div>
+                <label class="text-gray-300">Full Name</label>
+                <input id="name" type="text"
+                    class="w-full mt-2 bg-gray-900 border border-gray-700 px-4 py-3 rounded-xl focus:border-cyan-400 outline-none">
+            </div>
+
+            <div>
+                <label class="text-gray-300">Email</label>
+                <input id="email" type="email"
+                    class="w-full mt-2 bg-gray-900 border border-gray-700 px-4 py-3 rounded-xl focus:border-cyan-400 outline-none">
+            </div>
+
+            <div>
+                <label class="text-gray-300">Change Password</label>
+                <input id="password" type="password"
+                    class="w-full mt-2 bg-gray-900 border border-gray-700 px-4 py-3 rounded-xl focus:border-cyan-400 outline-none"
+                    placeholder="Leave blank to keep current password">
+            </div>
+
+            <button type="submit"
+                class="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-4 rounded-xl">
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- APP SETTINGS -->
+    <div class="bg-black/40 border border-gray-800 rounded-3xl p-8 mb-8">
+
+        <h2 class="text-2xl font-bold mb-6">App Settings</h2>
+
+        <div class="space-y-4">
+
+            <div class="flex justify-between items-center bg-gray-900 p-4 rounded-xl">
+                <p>Dark Mode (Default)</p>
+                <span class="text-cyan-400">Enabled</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-gray-900 p-4 rounded-xl">
+                <p>Notifications</p>
+                <span class="text-green-400">Enabled</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DANGER ZONE -->
+    <div class="bg-black/40 border border-red-500/30 rounded-3xl p-8">
+
+        <h2 class="text-2xl font-bold text-red-400 mb-6">Danger Zone</h2>
+
+        <div class="flex flex-col md:flex-row gap-4">
+
+            <button onclick="clearCart()"
+                class="bg-yellow-500 hover:bg-yellow-400 text-black font-semibold px-5 py-3 rounded-xl">
+                Clear Cart
+            </button>
+
+            <button onclick="clearWishlist()"
+                class="bg-pink-500 hover:bg-pink-400 text-black font-semibold px-5 py-3 rounded-xl">
+                Clear Wishlist
+            </button>
+
+            <button onclick="logout()"
+                class="bg-red-500 hover:bg-red-400 px-5 py-3 rounded-xl font-semibold">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ======================
+   LOGOUT
+====================== */
+function logout(){
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "login.html";
+}
+
+/* ======================
+   LOAD USER
+====================== */
+let user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+    alert("No user found");
+    window.location.href = "signup.html";
+}
+
+document.getElementById("name").value = user.name;
+document.getElementById("email").value = user.email;
+
+/* ======================
+   UPDATE USER
+====================== */
+document.getElementById("settingsForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    user.name = document.getElementById("name").value;
+    user.email = document.getElementById("email").value;
+
+    const newPass = document.getElementById("password").value;
+    if(newPass.trim() !== ""){
+        user.password = newPass;
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    alert("Settings Updated ✅");
+});
+
+/* ======================
+   CLEAR CART
+====================== */
+function clearCart(){
+    localStorage.removeItem("cart");
+    alert("Cart Cleared 🛒");
+}
+
+/* ======================
+   CLEAR WISHLIST
+====================== */
+function clearWishlist(){
+    localStorage.removeItem("wishlist");
+    alert("Wishlist Cleared ❤️");
+}
+
+</script>
+
+</body>
+</html>

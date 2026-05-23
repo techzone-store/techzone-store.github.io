@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone Cart</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+</head>
+
+<body class="bg-gray-950 text-white min-h-screen overflow-x-hidden">
+
+<!-- AUTH CHECK -->
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
+
+<!-- NAVBAR -->
+<nav class="bg-black/40 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <h1 class="text-2xl font-bold text-cyan-400">TechZone Cart</h1>
+
+        <div class="flex gap-3">
+            <a href="dashboard.html" class="bg-gray-900 px-4 py-2 rounded-xl hover:bg-gray-800">Dashboard</a>
+            <a href="wishlist.html" class="bg-gray-900 px-4 py-2 rounded-xl hover:bg-gray-800">Wishlist</a>
+            <button onclick="logout()" class="bg-red-500 px-4 py-2 rounded-xl font-semibold hover:bg-red-400">Logout</button>
+        </div>
+
+    </div>
+</nav>
+
+<!-- GLOW -->
+<div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full"></div>
+
+<!-- MAIN -->
+<div class="relative max-w-6xl mx-auto p-6">
+
+    <h1 class="text-4xl font-bold text-cyan-400 mb-8">Your Cart 🛒</h1>
+
+    <!-- CART ITEMS -->
+    <div id="cartContainer" class="space-y-6"></div>
+
+    <!-- TOTAL -->
+    <div class="mt-10 bg-black/40 border border-gray-800 rounded-3xl p-6 flex justify-between items-center">
+
+        <h2 class="text-2xl font-bold">Total Amount</h2>
+        <h2 id="totalPrice" class="text-3xl font-bold text-cyan-400">₹0</h2>
+
+    </div>
+
+</div>
+
+<script>
+
+function logout(){
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "login.html";
+}
+
+/* =========================
+   CART DATA
+========================= */
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* =========================
+   SAVE CART
+========================= */
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* =========================
+   ADD SAMPLE ITEM (for testing)
+   REMOVE later in real project
+========================= */
+if(cart.length === 0){
+    cart.push({
+        name: "Gaming Keyboard",
+        price: 649,
+        image: "images/p9.webp",
+        quantity: 1
+    });
+    saveCart();
+}
+
+/* =========================
+   REMOVE ITEM
+========================= */
+function removeItem(index){
+    cart.splice(index, 1);
+    saveCart();
+    renderCart();
+}
+
+/* =========================
+   CHANGE QTY
+========================= */
+function changeQty(index, value){
+    cart[index].quantity += value;
+
+    if(cart[index].quantity <= 0){
+        removeItem(index);
+        return;
+    }
+
+    saveCart();
+    renderCart();
+}
+
+/* =========================
+   TOTAL CALCULATION
+========================= */
+function getTotal(){
+    return cart.reduce((sum, item) => {
+        return sum + (item.price * item.quantity);
+    }, 0);
+}
+
+/* =========================
+   RENDER CART
+========================= */
+function renderCart(){
+
+    const container = document.getElementById("cartContainer");
+    const totalEl = document.getElementById("totalPrice");
+
+    if(cart.length === 0){
+        container.innerHTML = `
+            <div class="text-center text-gray-400 text-xl mt-20">
+                Your cart is empty 🛒
+            </div>
+        `;
+        totalEl.innerText = "₹0";
+        return;
+    }
+
+    container.innerHTML = cart.map((item, index) => `
+        <div class="bg-black/40 border border-gray-800 rounded-3xl p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+
+            <div class="flex items-center gap-5">
+
+                <img src="${item.image}" class="w-28 h-28 object-cover rounded-2xl border border-gray-700">
+
+                <div>
+                    <h2 class="text-2xl font-bold">${item.name}</h2>
+                    <p class="text-gray-400 mt-2">Price: ₹${item.price}</p>
+
+                    <div class="flex items-center gap-3 mt-3">
+
+                        <button onclick="changeQty(${index}, -1)"
+                            class="bg-gray-800 px-3 py-1 rounded-lg">-</button>
+
+                        <span class="px-3">${item.quantity}</span>
+
+                        <button onclick="changeQty(${index}, 1)"
+                            class="bg-gray-800 px-3 py-1 rounded-lg">+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="text-right">
+
+                <h3 class="text-2xl font-bold text-cyan-400">
+                    ₹${item.price * item.quantity}
+                </h3>
+
+                <button onclick="removeItem(${index})"
+                    class="mt-4 bg-red-500 hover:bg-red-400 px-5 py-2 rounded-xl font-semibold">
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
+    `).join("");
+
+    totalEl.innerText = "₹" + getTotal();
+}
+
+/* =========================
+   INIT
+========================= */
+renderCart();
+
+</script>
+
+</body>
+</html>
