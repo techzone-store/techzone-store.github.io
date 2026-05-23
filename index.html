@@ -18,31 +18,129 @@
 
   <!-- Navbar -->
   <nav class="bg-black/40 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <div class="max-w-7xl mx-auto px-6 py-4">
 
-      <!-- Logo -->
-      <div class="flex items-center gap-3">
-        <img src="images/logo.jpg"
-          class="w-12 h-12 rounded-full border-2 border-cyan-400 object-cover">
-        <h1 class="text-2xl font-bold text-cyan-400">TechZone</h1>
+      <!-- Top Navbar -->
+      <div class="flex items-center justify-between">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img src="images/logo.jpg"
+            class="w-12 h-12 rounded-full border-2 border-cyan-400 object-cover">
+
+          <h1 class="text-2xl font-bold text-cyan-400">
+            TechZone
+          </h1>
+        </div>
+
+        <!-- Desktop Search -->
+        <div class="hidden md:flex items-center bg-gray-900 rounded-full px-4 py-2 w-[350px] lg:w-[400px] border border-gray-700">
+          <i class="fa fa-search text-gray-400"></i>
+
+          <input type="text"
+            placeholder="Search products..."
+            class="bg-transparent outline-none px-3 w-full text-white">
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden lg:flex items-center gap-8 font-medium">
+          <li>
+            <a href="#" class="hover:text-cyan-400 transition">
+              <i class="fa-solid fa-house mr-2"></i>Home
+            </a>
+          </li>
+
+          <li>
+            <a href="login.html" class="hover:text-cyan-400 transition">
+              <i class="fa-regular fa-user mr-2"></i>Login
+            </a>
+          </li>
+
+          <li>
+            <a href="products.html" class="hover:text-cyan-400 transition">
+              <i class="fa-solid fa-bag-shopping mr-2"></i>Products
+            </a>
+          </li>
+
+          <li>
+            <a href="offers.html" class="hover:text-cyan-400 transition">
+              <i class="fa-solid fa-tag mr-2"></i>Offers
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html" class="hover:text-cyan-400 transition">
+              <i class="fa-solid fa-phone mr-2"></i>Contact
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn"
+          class="lg:hidden text-2xl text-cyan-400">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
       </div>
 
-      <!-- Search Bar -->
-      <div class="hidden md:flex items-center bg-gray-900 rounded-full px-4 py-2 w-[400px] border border-gray-700">
+      <!-- Mobile Search -->
+      <div class="md:hidden mt-4 flex items-center bg-gray-900 rounded-full px-4 py-2 border border-gray-700">
         <i class="fa fa-search text-gray-400"></i>
+
         <input type="text"
           placeholder="Search products..."
           class="bg-transparent outline-none px-3 w-full text-white">
       </div>
 
-      <!-- Menu -->
-      <ul class="hidden lg:flex items-center gap-8 font-medium">
-        <li><a href="#" class="hover:text-cyan-400 transition"><i class="fa-solid fa-house mr-2"></i>Home</a></li>
-        <li><a href="login.html" class="hover:text-cyan-400 transition"><i class="fa-regular fa-user mr-2"></i>Login</a></li>
-        <li><a href="products.html" class="hover:text-cyan-400 transition"><i class="fa-solid fa-bag-shopping mr-2"></i>Products</a></li>
-        <li><a href="offers.html" class="hover:text-cyan-400 transition"><i class="fa-solid fa-tag mr-2"></i>Offers</a></li>
-        <li><a href="contact.html" class="hover:text-cyan-400 transition"><i class="fa-solid fa-phone mr-2"></i>Contact</a></li>
-      </ul>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu"
+        class="hidden lg:hidden mt-5 bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden">
+
+        <ul class="flex flex-col font-medium">
+
+          <li>
+            <a href="#"
+              class="flex items-center gap-3 px-6 py-4 hover:bg-gray-800 hover:text-cyan-400 transition">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="login.html"
+              class="flex items-center gap-3 px-6 py-4 hover:bg-gray-800 hover:text-cyan-400 transition">
+              <i class="fa-regular fa-user"></i>
+              Login
+            </a>
+          </li>
+
+          <li>
+            <a href="products.html"
+              class="flex items-center gap-3 px-6 py-4 hover:bg-gray-800 hover:text-cyan-400 transition">
+              <i class="fa-solid fa-bag-shopping"></i>
+              Products
+            </a>
+          </li>
+
+          <li>
+            <a href="offers.html"
+              class="flex items-center gap-3 px-6 py-4 hover:bg-gray-800 hover:text-cyan-400 transition">
+              <i class="fa-solid fa-tag"></i>
+              Offers
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html"
+              class="flex items-center gap-3 px-6 py-4 hover:bg-gray-800 hover:text-cyan-400 transition">
+              <i class="fa-solid fa-phone"></i>
+              Contact
+            </a>
+          </li>
+
+        </ul>
+      </div>
 
     </div>
   </nav>
@@ -53,17 +151,17 @@
     <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl"></div>
 
     <div class="relative max-w-7xl mx-auto px-6 py-24 text-center">
-      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight">
         Welcome to
         <span class="text-cyan-400">TechZone</span>
       </h1>
 
-      <p class="mt-6 text-gray-300 text-lg max-w-2xl mx-auto">
+      <p class="mt-6 text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
         Discover premium gadgets, gaming gear, smartphones,
         laptops and accessories with unbeatable deals.
       </p>
 
-      <div class="mt-8 flex justify-center gap-4">
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
         <button class="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-3 rounded-full font-bold transition duration-300">
           Shop Now
         </button>
@@ -78,8 +176,10 @@
   <!-- Product Section -->
   <section class="max-w-7xl mx-auto px-6 py-16">
 
-    <div class="flex items-center justify-between mb-10">
-      <h2 class="text-4xl font-bold">Trending Products</h2>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Trending Products
+      </h2>
 
       <button class="bg-gray-800 hover:bg-gray-700 px-5 py-2 rounded-lg">
         View All
@@ -105,7 +205,9 @@
           </p>
 
           <div class="flex items-center justify-between mt-4">
-            <span class="text-2xl font-bold text-cyan-400">₹55,999</span>
+            <span class="text-2xl font-bold text-cyan-400">
+              ₹55,999
+            </span>
 
             <span class="bg-green-500/20 text-green-400 text-xs px-3 py-1 rounded-full">
               In Stock
@@ -127,20 +229,21 @@
         </div>
       </div>
 
-      <!-- Duplicate cards -->
-      <!-- Just copy same card and change image/title/price -->
-
     </div>
   </section>
 
   <!-- Features -->
   <section class="bg-gray-900 py-20">
 
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
 
       <div class="text-center p-8 rounded-3xl bg-gray-950 border border-gray-800">
         <i class="fa-solid fa-truck-fast text-5xl text-cyan-400"></i>
-        <h3 class="text-2xl font-bold mt-5">Fast Delivery</h3>
+
+        <h3 class="text-2xl font-bold mt-5">
+          Fast Delivery
+        </h3>
+
         <p class="text-gray-400 mt-3">
           Super fast and secure delivery across India.
         </p>
@@ -148,7 +251,11 @@
 
       <div class="text-center p-8 rounded-3xl bg-gray-950 border border-gray-800">
         <i class="fa-solid fa-shield-halved text-5xl text-cyan-400"></i>
-        <h3 class="text-2xl font-bold mt-5">Secure Payments</h3>
+
+        <h3 class="text-2xl font-bold mt-5">
+          Secure Payments
+        </h3>
+
         <p class="text-gray-400 mt-3">
           100% secure payment gateway support.
         </p>
@@ -156,7 +263,11 @@
 
       <div class="text-center p-8 rounded-3xl bg-gray-950 border border-gray-800">
         <i class="fa-solid fa-headset text-5xl text-cyan-400"></i>
-        <h3 class="text-2xl font-bold mt-5">24/7 Support</h3>
+
+        <h3 class="text-2xl font-bold mt-5">
+          24/7 Support
+        </h3>
+
         <p class="text-gray-400 mt-3">
           Dedicated customer support anytime.
         </p>
@@ -168,10 +279,13 @@
   <!-- Footer -->
   <footer class="bg-black border-t border-gray-800">
 
-    <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
       <div>
-        <h2 class="text-3xl font-bold text-cyan-400">TechZone</h2>
+        <h2 class="text-3xl font-bold text-cyan-400">
+          TechZone
+        </h2>
+
         <p class="text-gray-400 mt-4">
           Your trusted destination for premium electronics,
           gaming accessories and smart gadgets.
@@ -179,7 +293,9 @@
       </div>
 
       <div>
-        <h3 class="text-xl font-bold mb-5">Quick Links</h3>
+        <h3 class="text-xl font-bold mb-5">
+          Quick Links
+        </h3>
 
         <ul class="space-y-3 text-gray-400">
           <li><a href="#" class="hover:text-cyan-400">Home</a></li>
@@ -190,7 +306,9 @@
       </div>
 
       <div>
-        <h3 class="text-xl font-bold mb-5">Support</h3>
+        <h3 class="text-xl font-bold mb-5">
+          Support
+        </h3>
 
         <ul class="space-y-3 text-gray-400">
           <li><a href="#" class="hover:text-cyan-400">FAQs</a></li>
@@ -201,10 +319,17 @@
       </div>
 
       <div>
-        <h3 class="text-xl font-bold mb-5">Contact</h3>
+        <h3 class="text-xl font-bold mb-5">
+          Contact
+        </h3>
 
-        <p class="text-gray-400">support@techzone.com</p>
-        <p class="text-gray-400 mt-2">+91 98765 43210</p>
+        <p class="text-gray-400">
+          support@techzone.com
+        </p>
+
+        <p class="text-gray-400 mt-2">
+          +91 98765 43210
+        </p>
 
         <div class="flex gap-4 mt-5 text-2xl">
           <i class="fab fa-facebook hover:text-cyan-400 cursor-pointer"></i>
@@ -220,6 +345,16 @@
     </div>
 
   </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
 
 </body>
 </html>
